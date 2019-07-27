@@ -78,3 +78,9 @@ enable_python=False
 
     def package_info(self):
         self.cpp_info.libs = ["xlnt"]
+        self.cpp_info.cxxflags = ["-std=c++14"]
+
+    def configure(self):
+        # self.settings.compiler.libcxx
+        self.settings.compiler.cppstd = "14"
+

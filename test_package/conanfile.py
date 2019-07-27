@@ -22,4 +22,10 @@ class XlntTestConan(ConanFile):
     def test(self):
         if not tools.cross_building(self.settings):
             os.chdir("bin")
-            self.run(".%sexample" % os.sep)
+            self.run(".%sxlnt_test" % os.sep)
+            assert os.path.isfile("example.xlsx")
+
+    def configure(self):
+        # self.settings.compiler.libcxx
+        self.settings.compiler.cppstd = "14"
+
